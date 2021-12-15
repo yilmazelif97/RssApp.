@@ -1,0 +1,34 @@
+﻿@page
+@model RssApp.Pages.Page1Model
+@{
+}
+
+
+
+<form method="post">
+
+    <label>Enter Name: </label><br>
+    <input asp-for="rssinfo.Name" />
+    <span></span>
+
+    <br />
+
+    <label>Enter RSS URL: </label>
+    <input asp-for="rssinfo.URL" />
+
+    <br /><br />
+
+
+    @foreach (var item in Enum.GetValues(typeof(Models.Priority)))
+    {
+        @Html.RadioButtonFor(m => m.priority, item) @item
+    }
+
+    <div>
+        <button type="submit" asp-page-handler="Save"> Create Ticket </button>
+    </div>
+
+
+
+</form>
+© 2021 GitHub, Inc.
